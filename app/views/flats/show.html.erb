@@ -1,0 +1,19 @@
+<h1>Flat <%= @flat.name %></h1>
+<div class="flat-details">
+  <p>Name: <%= @flat.name %></p>
+  <p>Address: <%= @flat.address %></p>
+  <p>Description: <%= @flat.description %></p>
+  <p>Price per night: <%= @flat.price_per_night %></p>
+  <p>Number of guests: <%= @flat.number_of_guests %></p>
+</div>
+<% if @flat.picture_url.present? %>
+ <%= image_tag @flat.picture_url %>
+<% end %>
+<div class="button-group">
+  <%= link_to'Back to Flats', flats_path, class: 'add-new-flat' %>
+  <%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-primary' %>
+  <%= link_to 'Delete',
+    flat_path(@flat),
+    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: 'add-new-flat'
+  %>
+</div>

@@ -1,0 +1,12 @@
+<body>
+<h1>All flats</h1>
+<ul>
+<% @flats.each do |flat| %>
+  <li><%= link_to flat.name, flat_path(flat) %> </li>
+  <% if flat.picture_url.present? %>
+  <img src="<%= flat.picture_url %>" alt="" class="w-25">
+<% end %>
+<% end %>
+</ul>
+<%= link_to'Add a new flat', new_flat_path, class: 'add-new-flat' %>
+</body>
